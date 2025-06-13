@@ -1,7 +1,6 @@
-// Vercel Serverless Function
-import fetch from 'node-fetch';
+const fetch = require('node-fetch');
 
-export default async function handler(req, res) {
+module.exports = async (req, res) => {
   const { url } = req.query;
 
   if (!url) {
@@ -37,4 +36,4 @@ export default async function handler(req, res) {
   } catch (error) {
     return res.status(500).json({ success: false, error: 'Server error', detail: error.message });
   }
-}
+};
